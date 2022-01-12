@@ -18,6 +18,7 @@
  */
 package org.apache.tinkerpop.gremlin.structure.io.binary;
 
+import org.apache.tinkerpop.gremlin.process.traversal.Pick;
 import org.apache.tinkerpop.gremlin.structure.io.binary.types.*;
 import org.apache.tinkerpop.gremlin.process.traversal.Bytecode;
 import org.apache.tinkerpop.gremlin.process.traversal.Operator;
@@ -30,7 +31,6 @@ import org.apache.tinkerpop.gremlin.process.traversal.Scope;
 import org.apache.tinkerpop.gremlin.process.traversal.TextP;
 import org.apache.tinkerpop.gremlin.process.traversal.TraversalStrategy;
 import org.apache.tinkerpop.gremlin.process.traversal.Traverser;
-import org.apache.tinkerpop.gremlin.process.traversal.step.TraversalOptionParent;
 import org.apache.tinkerpop.gremlin.process.traversal.step.util.BulkSet;
 import org.apache.tinkerpop.gremlin.process.traversal.step.util.Tree;
 import org.apache.tinkerpop.gremlin.process.traversal.util.AndP;
@@ -119,7 +119,7 @@ public class TypeSerializerRegistry {
             new RegistryEntry<>(Direction.class, EnumSerializer.DirectionSerializer),
             new RegistryEntry<>(Operator.class, EnumSerializer.OperatorSerializer),
             new RegistryEntry<>(Order.class, EnumSerializer.OrderSerializer),
-            new RegistryEntry<>(TraversalOptionParent.Pick.class, EnumSerializer.PickSerializer),
+            new RegistryEntry<>(Pick.class, EnumSerializer.PickSerializer),
             new RegistryEntry<>(Pop.class, EnumSerializer.PopSerializer),
             new RegistryEntry<>(Lambda.class, new LambdaSerializer()),
             new RegistryEntry<>(P.class, new PSerializer<>(DataType.P, P.class)),

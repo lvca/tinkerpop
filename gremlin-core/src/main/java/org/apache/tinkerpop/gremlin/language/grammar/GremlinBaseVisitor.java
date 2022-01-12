@@ -1529,4 +1529,59 @@ public class GremlinBaseVisitor<T> extends AbstractParseTreeVisitor<T> implement
 	public T visitStructureVertex(final GremlinParser.StructureVertexContext ctx) {
 		notImplemented(ctx); return null;
 	}
+
+	@Override
+	public T visitTraversalSourceSpawnMethod_mergeV_Map(final GremlinParser.TraversalSourceSpawnMethod_mergeV_MapContext ctx) {
+		notImplemented(ctx); return null;
+	}
+
+	@Override
+	public T visitTraversalSourceSpawnMethod_mergeV_Traversal(final GremlinParser.TraversalSourceSpawnMethod_mergeV_TraversalContext ctx) {
+		notImplemented(ctx); return null;
+	}
+
+	@Override
+	public T visitTraversalMethod_option_Merge_Map(GremlinParser.TraversalMethod_option_Merge_MapContext ctx) {
+		notImplemented(ctx); return null;
+	}
+
+	@Override
+	public T visitTraversalMethod_option_Merge_Traversal(final GremlinParser.TraversalMethod_option_Merge_TraversalContext ctx) {
+		notImplemented(ctx); return null;
+	}
+
+	@Override
+	public T visitTraversalMerge(final GremlinParser.TraversalMergeContext ctx) {
+		notImplemented(ctx); return null;
+	}
+
+	@Override
+	public T visitTraversalMethod_mergeV_Map(final GremlinParser.TraversalMethod_mergeV_MapContext ctx) {
+		notImplemented(ctx); return null;
+	}
+
+	@Override
+	public T visitTraversalMethod_mergeV_Traversal(final GremlinParser.TraversalMethod_mergeV_TraversalContext ctx) {
+		notImplemented(ctx); return null;
+	}
+
+	@Override
+	public T visitTraversalMethod_mergeE_Map(final GremlinParser.TraversalMethod_mergeE_MapContext ctx) {
+		notImplemented(ctx); return null;
+	}
+
+	@Override
+	public T visitTraversalMethod_mergeE_Traversal(final GremlinParser.TraversalMethod_mergeE_TraversalContext ctx) {
+		notImplemented(ctx); return null;
+	}
+
+	@Override
+	public T visitTraversalSourceSpawnMethod_mergeE_Map(final GremlinParser.TraversalSourceSpawnMethod_mergeE_MapContext ctx) {
+		notImplemented(ctx); return null;
+	}
+
+	@Override
+	public T visitTraversalSourceSpawnMethod_mergeE_Traversal(final GremlinParser.TraversalSourceSpawnMethod_mergeE_TraversalContext ctx) {
+		notImplemented(ctx); return null;
+	}
 }

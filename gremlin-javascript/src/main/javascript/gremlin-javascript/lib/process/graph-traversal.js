@@ -810,6 +810,26 @@ class GraphTraversal extends Traversal {
     this.bytecode.addStep('mean', args);
     return this;
   }
+
+  /**
+   * Graph traversal mergeE method.
+   * @param {...Object} args
+   * @returns {GraphTraversal}
+   */
+  mergeE(...args) {
+    this.bytecode.addStep("mergeE", args);
+    return this;
+  }
+
+  /**
+   * Graph traversal mergeV method.
+   * @param {...Object} args
+   * @returns {GraphTraversal}
+   */
+  mergeV(...args) {
+    this.bytecode.addStep("mergeV", args);
+    return this;
+  }
   
   /**
    * Graph traversal min method.
@@ -1365,6 +1385,8 @@ const statics = {
   math: (...args) => callOnEmptyTraversal('math', args),
   max: (...args) => callOnEmptyTraversal('max', args),
   mean: (...args) => callOnEmptyTraversal('mean', args),
+  mergeE: (...args) => callOnEmptyTraversal("mergeE", args),
+  mergeV: (...args) => callOnEmptyTraversal("mergeV", args),
   min: (...args) => callOnEmptyTraversal('min', args),
   not: (...args) => callOnEmptyTraversal('not', args),
   optional: (...args) => callOnEmptyTraversal('optional', args),

@@ -21,19 +21,13 @@
 import org.apache.commons.configuration.BaseConfiguration
 import org.apache.tinkerpop.gremlin.process.traversal.util.DefaultTraversalMetrics
 import org.apache.tinkerpop.gremlin.process.traversal.util.MutableMetrics
-import org.apache.tinkerpop.gremlin.process.traversal.util.TraversalMetrics
 import org.apache.tinkerpop.shaded.kryo.io.Output
 
 import java.time.*
-import java.nio.file.*
-import org.apache.tinkerpop.gremlin.driver.ser.*
+
 import org.apache.tinkerpop.gremlin.process.traversal.*
 import org.apache.tinkerpop.gremlin.tinkergraph.structure.*
 import org.apache.tinkerpop.gremlin.structure.*
-import org.apache.tinkerpop.gremlin.structure.io.graphson.*
-import org.apache.tinkerpop.gremlin.driver.message.*
-import org.apache.tinkerpop.gremlin.process.traversal.step.*
-import org.apache.tinkerpop.gremlin.process.traversal.step.TraversalOptionParent.Pick
 import org.apache.tinkerpop.gremlin.structure.io.gryo.*
 
 import java.util.concurrent.TimeUnit

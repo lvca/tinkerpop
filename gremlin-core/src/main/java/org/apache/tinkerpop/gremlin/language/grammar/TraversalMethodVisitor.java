@@ -18,6 +18,7 @@
  */
 package org.apache.tinkerpop.gremlin.language.grammar;
 
+import org.apache.tinkerpop.gremlin.process.traversal.Merge;
 import org.apache.tinkerpop.gremlin.process.traversal.Operator;
 import org.apache.tinkerpop.gremlin.process.traversal.Order;
 import org.apache.tinkerpop.gremlin.process.traversal.Pop;
@@ -86,6 +87,26 @@ public class TraversalMethodVisitor extends TraversalRootVisitor<GraphTraversal>
     @Override
     public GraphTraversal visitTraversalMethod_addV_String(final GremlinParser.TraversalMethod_addV_StringContext ctx) {
         return this.graphTraversal.addV(GenericLiteralVisitor.getStringLiteral(ctx.stringLiteral()));
+    }
+
+    @Override
+    public GraphTraversal visitTraversalMethod_mergeV_Map(final GremlinParser.TraversalMethod_mergeV_MapContext ctx) {
+        return this.graphTraversal.mergeV(GenericLiteralVisitor.getMapLiteral(ctx.genericLiteralMap()));
+    }
+
+    @Override
+    public GraphTraversal visitTraversalMethod_mergeV_Traversal(final GremlinParser.TraversalMethod_mergeV_TraversalContext ctx) {
+        return this.graphTraversal.mergeV(antlr.tvisitor.visitNestedTraversal(ctx.nestedTraversal()));
+    }
+
+    @Override
+    public GraphTraversal visitTraversalMethod_mergeE_Map(final GremlinParser.TraversalMethod_mergeE_MapContext ctx) {
+        return this.graphTraversal.mergeE(GenericLiteralVisitor.getMapLiteral(ctx.genericLiteralMap()));
+    }
+
+    @Override
+    public GraphTraversal visitTraversalMethod_mergeE_Traversal(final GremlinParser.TraversalMethod_mergeE_TraversalContext ctx) {
+        return this.graphTraversal.mergeE(antlr.tvisitor.visitNestedTraversal(ctx.nestedTraversal()));
     }
 
     @Override
@@ -970,6 +991,24 @@ public class TraversalMethodVisitor extends TraversalRootVisitor<GraphTraversal>
     @Override
     public GraphTraversal visitTraversalMethod_option_Traversal(final GremlinParser.TraversalMethod_option_TraversalContext ctx) {
         return this.graphTraversal.option(antlr.tvisitor.visitNestedTraversal(ctx.nestedTraversal()));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public GraphTraversal visitTraversalMethod_option_Merge_Map(final GremlinParser.TraversalMethod_option_Merge_MapContext ctx) {
+        return graphTraversal.option(TraversalEnumParser.parseTraversalEnumFromContext(Merge.class, ctx.traversalMerge()),
+                (Map) new GenericLiteralVisitor(antlr).visitGenericLiteralMap(ctx.genericLiteralMap()));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public GraphTraversal visitTraversalMethod_option_Merge_Traversal(final GremlinParser.TraversalMethod_option_Merge_TraversalContext ctx) {
+        return this.graphTraversal.option(TraversalEnumParser.parseTraversalEnumFromContext(Merge.class, ctx.traversalMerge()),
+                antlr.tvisitor.visitNestedTraversal(ctx.nestedTraversal()));
     }
 
     /**

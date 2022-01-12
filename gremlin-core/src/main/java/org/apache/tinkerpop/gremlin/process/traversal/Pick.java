@@ -16,21 +16,11 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.apache.tinkerpop.gremlin.process.traversal.step;
-
-import org.apache.tinkerpop.gremlin.process.traversal.Pick;
-import org.apache.tinkerpop.gremlin.process.traversal.Traversal;
+package org.apache.tinkerpop.gremlin.process.traversal;
 
 /**
- * Describes steps that can be parent to a {@link Traversal} from {@code option()}.
- *
- * @author Marko A. Rodriguez (http://markorodriguez.com)
+ * A token used with {@code option()}.
  */
-public interface TraversalOptionParent<M, S, E> extends TraversalParent {
-
-    /**
-     * The child as defined by the token it takes, like {@link Pick}. This traversal may be of local or global scope
-     * depending on the step implementation that works with {@code option()}.
-     */
-    public void addChildOption(final M token, final Traversal.Admin<S, E> traversalOption);
+public enum Pick {
+    any, none
 }

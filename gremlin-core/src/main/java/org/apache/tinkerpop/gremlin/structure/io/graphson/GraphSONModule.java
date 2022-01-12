@@ -25,6 +25,7 @@ import org.apache.tinkerpop.gremlin.process.traversal.Operator;
 import org.apache.tinkerpop.gremlin.process.traversal.Order;
 import org.apache.tinkerpop.gremlin.process.traversal.P;
 import org.apache.tinkerpop.gremlin.process.traversal.Path;
+import org.apache.tinkerpop.gremlin.process.traversal.Pick;
 import org.apache.tinkerpop.gremlin.process.traversal.Pop;
 import org.apache.tinkerpop.gremlin.process.traversal.SackFunctions;
 import org.apache.tinkerpop.gremlin.process.traversal.Scope;
@@ -32,7 +33,6 @@ import org.apache.tinkerpop.gremlin.process.traversal.TextP;
 import org.apache.tinkerpop.gremlin.process.traversal.Traversal;
 import org.apache.tinkerpop.gremlin.process.traversal.TraversalStrategy;
 import org.apache.tinkerpop.gremlin.process.traversal.Traverser;
-import org.apache.tinkerpop.gremlin.process.traversal.step.TraversalOptionParent;
 import org.apache.tinkerpop.gremlin.process.traversal.step.util.BulkSet;
 import org.apache.tinkerpop.gremlin.process.traversal.step.util.Tree;
 import org.apache.tinkerpop.gremlin.process.traversal.strategy.decoration.ConnectiveStrategy;
@@ -178,7 +178,7 @@ abstract class GraphSONModule extends TinkerPopJacksonModule {
                             Order.class,
                             Pop.class,
                             SackFunctions.Barrier.class,
-                            TraversalOptionParent.Pick.class,
+                            Pick.class,
                             Scope.class,
                             T.class).forEach(e -> put(e, e.getSimpleName()));
                     Arrays.asList(
@@ -262,7 +262,7 @@ abstract class GraphSONModule extends TinkerPopJacksonModule {
                     Pop.class,
                     SackFunctions.Barrier.class,
                     Scope.class,
-                    TraversalOptionParent.Pick.class,
+                    Pick.class,
                     T.class).forEach(e -> addSerializer(e, new TraversalSerializersV3d0.EnumJacksonSerializer()));
             addSerializer(P.class, new TraversalSerializersV3d0.PJacksonSerializer());
             addSerializer(Lambda.class, new TraversalSerializersV3d0.LambdaJacksonSerializer());
@@ -304,7 +304,7 @@ abstract class GraphSONModule extends TinkerPopJacksonModule {
                     Pop.values(),
                     SackFunctions.Barrier.values(),
                     Scope.values(),
-                    TraversalOptionParent.Pick.values(),
+                    Pick.values(),
                     T.values()).flatMap(Stream::of).forEach(e -> addDeserializer(e.getClass(), new TraversalSerializersV3d0.EnumJacksonDeserializer(e.getDeclaringClass())));
             addDeserializer(P.class, new TraversalSerializersV3d0.PJacksonDeserializer());
             addDeserializer(TextP.class, new TraversalSerializersV3d0.TextPJacksonDeserializer());
@@ -416,7 +416,7 @@ abstract class GraphSONModule extends TinkerPopJacksonModule {
                             Order.class,
                             Pop.class,
                             SackFunctions.Barrier.class,
-                            TraversalOptionParent.Pick.class,
+                            Pick.class,
                             Scope.class,
                             T.class).forEach(e -> put(e, e.getSimpleName()));
                     Arrays.asList(
@@ -496,7 +496,7 @@ abstract class GraphSONModule extends TinkerPopJacksonModule {
                     Pop.class,
                     SackFunctions.Barrier.class,
                     Scope.class,
-                    TraversalOptionParent.Pick.class,
+                    Pick.class,
                     T.class).forEach(e -> addSerializer(e, new TraversalSerializersV2d0.EnumJacksonSerializer()));
             addSerializer(P.class, new TraversalSerializersV2d0.PJacksonSerializer());
             addSerializer(Lambda.class, new TraversalSerializersV2d0.LambdaJacksonSerializer());
@@ -532,7 +532,7 @@ abstract class GraphSONModule extends TinkerPopJacksonModule {
                     Pop.values(),
                     SackFunctions.Barrier.values(),
                     Scope.values(),
-                    TraversalOptionParent.Pick.values(),
+                    Pick.values(),
                     T.values()).flatMap(Stream::of).forEach(e -> addDeserializer(e.getClass(), new TraversalSerializersV2d0.EnumJacksonDeserializer(e.getDeclaringClass())));
             addDeserializer(P.class, new TraversalSerializersV2d0.PJacksonDeserializer());
             addDeserializer(TextP.class, new TraversalSerializersV2d0.TextPJacksonDeserializer());

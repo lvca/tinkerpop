@@ -266,7 +266,7 @@ Feature: Step - group()
   # The post-ordering really isn't really right but works around TINKERPOP-2600
   Scenario: g_withSideEffectXa__marko_666_noone_blahX_V_groupXaX_byXnameX_byXoutE_label_foldX_capXaX
     Given the modern graph
-    And using the parameter xx1 defined as "m[{\"marko\":[\"666\"], \"noone\":[\"blah\"]}]"
+    And using the parameter xx1 defined as "m[{\"marko\":l[\"666\"], \"noone\":l[\"blah\"]}]"
     And the traversal of
       """
       g.withSideEffect("a", xx1).V().group("a").by("name").by(__.outE().label().fold()).cap("a").unfold().group().by(keys).by(select(values).order(Scope.local).by(Order.asc))
