@@ -23,6 +23,7 @@ import org.apache.tinkerpop.gremlin.process.traversal.CoreTraversalTest;
 import org.apache.tinkerpop.gremlin.process.traversal.TraversalEngine;
 import org.apache.tinkerpop.gremlin.process.traversal.TraversalInterruptionTest;
 import org.apache.tinkerpop.gremlin.process.traversal.step.ComplexTest;
+import org.apache.tinkerpop.gremlin.process.traversal.step.OrderabilityTest;
 import org.apache.tinkerpop.gremlin.process.traversal.step.map.MatchTest;
 import org.apache.tinkerpop.gremlin.process.traversal.step.map.ProfileTest;
 import org.apache.tinkerpop.gremlin.process.traversal.step.map.WriteTest;
