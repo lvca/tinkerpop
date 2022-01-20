@@ -125,7 +125,7 @@ public final class StepDefinition {
         add(Pair.with(Pattern.compile("v\\[(.+)\\]\\.sid"), s -> g.V().has("name", s).id().next().toString()));
         add(Pair.with(Pattern.compile("v\\[(.+)\\]"), s -> {
             final Iterator<Object> itty = g.V().has("name", s).id();
-            return String.format("new Vertex(\"%s\",\"%s\")", itty.hasNext() ? itty.next() : s, Vertex.DEFAULT_LABEL);
+            return String.format("new Vertex(%s,\"%s\")", itty.hasNext() ? itty.next() : s, Vertex.DEFAULT_LABEL);
         }));
         add(Pair.with(Pattern.compile("e\\[(.+)\\]\\.id"), s -> getEdgeIdString(g, s)));
         add(Pair.with(Pattern.compile("e\\[(.+)\\]\\.sid"), s -> getEdgeIdString(g, s)));
@@ -137,9 +137,6 @@ public final class StepDefinition {
         // cases like the lambda item which likely won't make it to the grammar as it's raw groovy.
         add(Pair.with(Pattern.compile("c\\[(.*)\\]"), s -> {
             throw new AssumptionViolatedException("This test uses a lambda as a parameter which is not supported by gremlin-language");
-        }));
-        add(Pair.with(Pattern.compile("v\\[(.+)\\]"), s -> {
-            throw new AssumptionViolatedException("This test uses a Vertex as a parameter which is not supported by gremlin-language");
         }));
         add(Pair.with(Pattern.compile("e\\[(.+)\\]"), s -> {
             throw new AssumptionViolatedException("This test uses a Edge as a parameter which is not supported by gremlin-language");

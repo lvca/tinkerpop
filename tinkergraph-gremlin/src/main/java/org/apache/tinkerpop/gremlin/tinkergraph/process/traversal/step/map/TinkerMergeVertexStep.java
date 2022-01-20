@@ -42,6 +42,7 @@ public class TinkerMergeVertexStep<S> extends MergeVertexStep<S> {
         super(step.getTraversal(), step.isStart(), step.getSearchCreateTraversal());
         if (step.getOnMatchTraversal() != null) this.addChildOption(Merge.onMatch, step.getOnMatchTraversal());
         if (step.getOnCreateTraversal() != null) this.addChildOption(Merge.onCreate, step.getOnCreateTraversal());
+        if (step.getCallbackRegistry() != null) this.callbackRegistry = step.getCallbackRegistry();
     }
 
     @Override

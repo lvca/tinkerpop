@@ -60,7 +60,7 @@ public class MergeVertexStep<S> extends FlatMapStep<S, Vertex> implements Mutati
     private Traversal.Admin<S, Map<Object, Object>> onCreateTraversal = null;
     private Traversal.Admin<S, Map<String, Object>> onMatchTraversal = null;
 
-    private CallbackRegistry<Event> callbackRegistry;
+    protected CallbackRegistry<Event> callbackRegistry;
 
     public MergeVertexStep(final Traversal.Admin traversal, final boolean isStart, final Map<Object, Object> searchCreate) {
         this(traversal, isStart, new ConstantTraversal<>(searchCreate));

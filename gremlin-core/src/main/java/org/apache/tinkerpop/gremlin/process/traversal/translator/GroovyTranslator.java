@@ -174,7 +174,7 @@ public final class GroovyTranslator implements Translator.ScriptTranslator {
 
         @Override
         protected String getSyntax(final Pick o) {
-            return "TraversalOptionParent.Pick." + o.toString();
+            return "Pick." + o.toString();
         }
 
         @Override

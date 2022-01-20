@@ -212,6 +212,16 @@ class GraphTraversalSource {
     const b = new Bytecode(this.bytecode).addStep('addE', args);
     return new this.graphTraversalClass(this.graph, new TraversalStrategies(this.traversalStrategies), b);
   }
+
+  /**
+   * mergeV GraphTraversalSource step method.
+   * @param {...Object} args
+   * @returns {GraphTraversal}
+   */
+  mergeE(...args) {
+    const b = new Bytecode(this.bytecode).addStep('mergeE', args);
+    return new this.graphTraversalClass(this.graph, new TraversalStrategies(this.traversalStrategies), b);
+  }
   
   /**
    * addV GraphTraversalSource step method.
@@ -220,6 +230,16 @@ class GraphTraversalSource {
    */
   addV(...args) {
     const b = new Bytecode(this.bytecode).addStep('addV', args);
+    return new this.graphTraversalClass(this.graph, new TraversalStrategies(this.traversalStrategies), b);
+  }
+
+  /**
+   * mergeV GraphTraversalSource step method.
+   * @param {...Object} args
+   * @returns {GraphTraversal}
+   */
+  mergeV(...args) {
+    const b = new Bytecode(this.bytecode).addStep('mergeV', args);
     return new this.graphTraversalClass(this.graph, new TraversalStrategies(this.traversalStrategies), b);
   }
   

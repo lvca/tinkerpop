@@ -29,7 +29,7 @@ from gremlin_python.process.anonymous_traversal import traversal
 from gremlin_python.process.traversal import TraversalStrategy
 from gremlin_python.process.graph_traversal import __
 from gremlin_python.structure.graph import Graph
-from gremlin_python.process.traversal import Barrier, Cardinality, P, TextP, Pop, Scope, Column, Order, Direction, T, Pick, Operator, IO, WithOptions
+from gremlin_python.process.traversal import Barrier, Cardinality, P, TextP, Pop, Scope, Column, Order, Direction, Merge, T, Pick, Operator, IO, WithOptions
 
 world.gremlins = {
     'g_V_branchXlabel_eq_person__a_bX_optionXa__ageX_optionXb__langX_optionXb__nameX': [(lambda g, l1=None:g.V().branch(l1).option('a',__.age).option('b',__.lang).option('b',__.name))], 
@@ -804,7 +804,6 @@ world.gremlins = {
     'g_V_outXfollowedByX_group_byXsongTypeX_byXbothE_group_byXlabelX_byXweight_sumXX': [(lambda g:g.V().out('followedBy').group().by('songType').by(__.bothE().group().by(T.label).by(__.weight.sum_())))], 
     'g_V_groupXmX_byXnameX_byXinXknowsX_nameX_capXmX': [(lambda g:g.V().group('m').by('name').by(__.in_('knows').name).cap('m'))], 
     'g_V_group_byXlabelX_byXbothE_groupXaX_byXlabelX_byXweight_sumX_weight_sumX': [(lambda g:g.V().group().by(T.label).by(__.bothE().group('a').by(T.label).by(__.weight.sum_()).weight.sum_()))], 
-    'g_withSideEffectXa__marko_666_noone_blahX_V_groupXaX_byXnameX_byXoutE_label_foldX_capXaX': [(lambda g, xx1=None:g.withSideEffect('a',xx1).V().group('a').by('name').by(__.outE().label().fold()).cap('a').unfold().group().by(Column.keys).by(__.select(Column.values).order(Scope.local).by(Order.asc)))], 
     'g_V_hasLabelXpersonX_asXpX_outXcreatedX_group_byXnameX_byXselectXpX_valuesXageX_sumX': [(lambda g:g.V().hasLabel('person').as_('p').out('created').group().by('name').by(__.select('p').age.sum_()))], 
     'g_V_hasLabelXpersonX_asXpX_outXcreatedX_groupXaX_byXnameX_byXselectXpX_valuesXageX_sumX_capXaX': [(lambda g:g.V().hasLabel('person').as_('p').out('created').group('a').by('name').by(__.select('p').age.sum_()).cap('a'))], 
     'g_V_group_byXlabelX_byXlabel_countX': [(lambda g:g.V().group().by(__.label()).by(__.label().count()))], 
@@ -827,7 +826,7 @@ world.gremlins = {
     'g_V_hasXperson_name_markoX_bothXknowsX_groupCount_byXvaluesXnameX_foldX': [(lambda g:g.V().has('person','name','marko').both('knows').groupCount().by(__.name.fold()))], 
     'g_VX1X_out_injectXv2X_name': [(lambda g, vid1=None,v2=None:g.V(vid1).out().inject(v2).name)], 
     'g_VX1X_out_name_injectXdanielX_asXaX_mapXlengthX_path': [(lambda g, l1=None,vid1=None:g.V(vid1).out().name.inject('daniel').as_('a').map(l1).path())], 
-    'g_VX1X_injectXg_VX4XX_out_name': [(lambda g, vid1=None,v4=None:g.V(vid1).inject(v4).out().name)], 
+    'g_VX1X_injectXg_VX4XX_out_name': [(lambda g, vid1=None,v2=None:g.V(vid1).inject(v2).out().name)], 
     'g_injectXnull_1_3_nullX': [(lambda g:g.inject(None,1,3,None))], 
     'g_injectX10_20_null_20_10_10X_groupCountXxX_dedup_asXyX_projectXa_bX_by_byXselectXxX_selectXselectXyXXX': [(lambda g:g.inject(10,20,None,20,10,10).groupCount('x').dedup().as_('y').project('a','b').by().by(__.select('x').select(__.select('y'))))], 
     'g_injectXname_marko_age_nullX_selectXname_ageX': [(lambda g, xx1=None:g.inject(xx1).select('name','age'))], 

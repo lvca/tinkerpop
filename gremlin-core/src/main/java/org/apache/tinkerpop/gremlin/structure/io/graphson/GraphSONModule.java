@@ -21,6 +21,7 @@ package org.apache.tinkerpop.gremlin.structure.io.graphson;
 import org.apache.tinkerpop.gremlin.process.computer.traversal.strategy.decoration.VertexProgramStrategy;
 import org.apache.tinkerpop.gremlin.process.computer.traversal.strategy.optimization.GraphFilterStrategy;
 import org.apache.tinkerpop.gremlin.process.traversal.Bytecode;
+import org.apache.tinkerpop.gremlin.process.traversal.Merge;
 import org.apache.tinkerpop.gremlin.process.traversal.Operator;
 import org.apache.tinkerpop.gremlin.process.traversal.Order;
 import org.apache.tinkerpop.gremlin.process.traversal.P;
@@ -174,6 +175,7 @@ abstract class GraphSONModule extends TinkerPopJacksonModule {
                             VertexProperty.Cardinality.class,
                             Column.class,
                             Direction.class,
+                            Merge.class,
                             Operator.class,
                             Order.class,
                             Pop.class,
@@ -257,6 +259,7 @@ abstract class GraphSONModule extends TinkerPopJacksonModule {
             Stream.of(VertexProperty.Cardinality.class,
                     Column.class,
                     Direction.class,
+                    Merge.class,
                     Operator.class,
                     Order.class,
                     Pop.class,
@@ -299,6 +302,7 @@ abstract class GraphSONModule extends TinkerPopJacksonModule {
             Stream.of(VertexProperty.Cardinality.values(),
                     Column.values(),
                     Direction.values(),
+                    Merge.values(),
                     Operator.values(),
                     Order.values(),
                     Pop.values(),
@@ -412,6 +416,7 @@ abstract class GraphSONModule extends TinkerPopJacksonModule {
                             VertexProperty.Cardinality.class,
                             Column.class,
                             Direction.class,
+                            Merge.class,
                             Operator.class,
                             Order.class,
                             Pop.class,
@@ -491,6 +496,7 @@ abstract class GraphSONModule extends TinkerPopJacksonModule {
             Stream.of(VertexProperty.Cardinality.class,
                     Column.class,
                     Direction.class,
+                    Merge.class,
                     Operator.class,
                     Order.class,
                     Pop.class,
@@ -527,6 +533,7 @@ abstract class GraphSONModule extends TinkerPopJacksonModule {
             Stream.of(VertexProperty.Cardinality.values(),
                     Column.values(),
                     Direction.values(),
+                    Merge.values(),
                     Operator.values(),
                     Order.values(),
                     Pop.values(),
